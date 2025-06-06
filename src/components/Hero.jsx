@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import Button from './Button';
+import { TiLocationArrow } from 'react-icons/ti';
 
 const Hero = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
@@ -76,9 +78,19 @@ const Hero = () => {
                             Enter the Metagame Layer <br /> Unleash the Play
                             Economy
                         </p>
+                        <Button
+                            id="watch-trailer"
+                            leftIcon={<TiLocationArrow />}
+                            containerClass="bg-yellow-300 flex-center gap-1"
+                        >
+                            Watch Trailer
+                        </Button>
                     </div>
                 </div>
             </div>
+            <h1 className="special-font hero-heading absolute right-5 bottom-5 text-black">
+                G<b>a</b>ming
+            </h1>
         </div>
     );
 };
