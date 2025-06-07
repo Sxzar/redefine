@@ -56,14 +56,14 @@ body {
 @utility border-hsla {
     @apply border border-white/20;
 }
-@utility special-font {
-    font-family: var(--font-zentry);
-    font-feature-settings: 'ss01' on;
-}
 
 @layer utilities {
     .nav-hover-btn {
         @apply font-general relative ms-10 cursor-pointer text-xs text-blue-50 uppercase after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white;
+    }
+    .special-font b {
+        font-family: var(--font-zentry);
+        font-feature-settings: 'ss01' on;
     }
 
     .floating-nav {
@@ -99,14 +99,16 @@ body {
     }
 
     .animated-word {
-        @apply special-font font-zentry font-black opacity-0;
+        @apply font-zentry font-black opacity-0;
+        font-family: var(--font-zentry);
+        font-feature-settings: 'ss01' on;
         transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
         transform-origin: 50% 50% -150px !important;
         will-change: opacity, transform;
     }
 
     .bento-tilt_1 {
-        @apply border-hsla relative col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+        @apply relative overflow-hidden rounded-md border border-white/20 transition-transform duration-300 ease-out;
     }
 
     .bento-tilt_2 {
