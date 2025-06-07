@@ -39,7 +39,24 @@ const BentoTilt = ({ children, className = '' }) => {
     );
 };
 
-const BentoCard = ({ src, title, description }) => {
+export const BentoCard = ({ src, title, description, isComingSoon }) => {
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+    const [hoverOpacity, setHoverOpacity] = useState(0);
+    const hoverButtonRef = useRef(null);
+
+    const handleMouseMove = (event) => {
+        if (!hoverButtonRef.current) return;
+        const rect = hoverButtonRef.current.getBoundingClientRect();
+
+        setCursorPosition({
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        });
+    };
+
+    const handleMouseEnter = () => setHoverOpacity(1);
+    const handleMouseLeave = () => setHoverOpacity(0);
+
     return (
         <div className="relative size-full">
             <video
@@ -58,6 +75,27 @@ const BentoCard = ({ src, title, description }) => {
                         </p>
                     )}
                 </div>
+
+                {isComingSoon && (
+                    <div
+                        ref={hoverButtonRef}
+                        onMouseMove={handleMouseMove}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs text-white/20 uppercase"
+                    >
+                        {/* Radial gradient hover effect */}
+                        <div
+                            className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+                            style={{
+                                opacity: hoverOpacity,
+                                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`
+                            }}
+                        />
+                        <TiLocationArrow className="relative z-20" />
+                        <p className="relative z-20">coming soon</p>
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -65,7 +103,7 @@ const BentoCard = ({ src, title, description }) => {
 
 const Features = () => {
     return (
-        <section className="bg-black pb-52">
+        <section className="bg-black pb-10">
             <div className="container mx-auto px-3 md:px-10">
                 <div className="px-5 py-32">
                     <p className="font-circular-web text-lg text-blue-50">
@@ -88,6 +126,7 @@ const Features = () => {
                             </>
                         }
                         description="The game of games app transforming moments across Web2 & Web3 titles into rewards"
+                        isComingSoon
                     />
                 </BentoTilt>
                 <div className="grid h-[90vh] grid-rows-2 gap-7 md:grid-cols-2">
@@ -100,6 +139,7 @@ const Features = () => {
                                 </>
                             }
                             description="The NFT collection merging Zentry's IP, AI, and gaming - pushing the boundaries of NFT innovation."
+                            isComingSoon
                         />
                     </BentoTilt>
                     <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
@@ -111,6 +151,7 @@ const Features = () => {
                                 </>
                             }
                             description="The metagame portal uniting humans & AI to play, compete and earn, shaping profiles that reflect their legacy."
+                            isComingSoon
                         />
                     </BentoTilt>
                     <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
@@ -122,6 +163,7 @@ const Features = () => {
                                 </>
                             }
                             description="The agent of agents elevating agentic AI experience to be more fun and productive."
+                            isComingSoon
                         />
                     </BentoTilt>
                 </div>
