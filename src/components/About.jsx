@@ -17,12 +17,19 @@ const About = () => {
                 pinSpacing: true
             }
         });
-
-        clipAnimation.to('.mask-clip-path', {
-            width: '100vw',
-            height: '100vh',
-            borderRadius: '0'
-        });
+        clipAnimation.fromTo(
+            '.mask-clip-path',
+            {
+                clipPath: 'polygon(12% 0, 72% 18%, 85% 90%, 12% 100%)',
+                borderRadius: '2rem'
+            },
+            {
+                width: '100vw',
+                height: '100vh',
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                borderRadius: '0'
+            }
+        );
     });
     return (
         <div id="about" className="min-h-screen w-screen">
@@ -45,7 +52,12 @@ const About = () => {
                     </p>
                 </div>
             </div>
-            <div className="h-dvh w-screen" id="clip">
+            <div className="relative h-dvh w-screen" id="clip">
+                <img
+                    src="/img/stones.webp"
+                    alt="stones"
+                    className="float absolute z-50 hidden md:block"
+                />
                 <div className="mask-clip-path about-image">
                     <img
                         src="/img/about.webp"

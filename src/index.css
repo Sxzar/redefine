@@ -79,7 +79,7 @@ body {
     }
 
     .mask-clip-path {
-        clip-path: polygon(0, 0, 100% 0, 100% 100%, 0 100%);
+        will-change: clip-path;
     }
 
     .hero-heading {
@@ -87,11 +87,11 @@ body {
     }
 
     .about-subtext {
-        @apply font-circular-web absolute -bottom-[80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center text-lg md:max-w-[34rem];
+        @apply font-circular-web absolute -bottom-[100dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center text-lg md:-bottom-[80dvh] md:max-w-[34rem];
     }
 
     .about-image {
-        @apply absolute top-0 left-1/2 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+        @apply absolute top-0 left-1/2 z-20 h-[80vh] min-h-[300px] w-[90vw] origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:h-[60vh] md:w-[30vw];
     }
 
     .animated-title {
@@ -252,6 +252,10 @@ body {
     animation: wobble2 var(--uib-speed) infinite ease-in-out;
 }
 
+.float {
+    animation: float infinite 6s ease-in-out;
+}
+
 @keyframes spin78236 {
     0% {
         transform: rotate(0deg);
@@ -285,5 +289,17 @@ body {
     50% {
         transform: translateY(66%) scale(0.65);
         opacity: 0.8;
+    }
+}
+
+@keyframes float {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -2rem;
+    }
+    100% {
+        top: 0;
     }
 }
