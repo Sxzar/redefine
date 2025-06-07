@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, use } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useWindowScroll } from 'react-use';

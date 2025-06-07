@@ -132,7 +132,7 @@ const Hero = () => {
                 <div className="left0 absolute top-0 z-40 size-full">
                     <div className="mt-24 px-5 sm:px-10">
                         <h1 className="special-font hero-heading text-blue-100">
-                            refefi<b>n</b>e
+                            redefi<b>n</b>e
                         </h1>
                         <p className="mx-w-64 font-robert-regular mb-5 text-blue-100">
                             Enter the Metagame Layer <br /> Unleash the Play
