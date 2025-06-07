@@ -148,9 +148,9 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <h1 className="special-font hero-heading absolute right-5 bottom-5 text-black">
+            <span className="special-font hero-heading absolute right-5 bottom-5 text-black">
                 G<b>a</b>ming
-            </h1>
+            </span>
         </div>
     );
 };
