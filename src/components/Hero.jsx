@@ -37,7 +37,7 @@ const Hero = () => {
     useGSAP(
         () => {
             if (hasClicked) {
-                gsap.set('#next-video', { visibility: 'visible' });
+                gsap.set('#next-video', { opacity: 1, pointerEvents: 'auto' });
                 gsap.to('#next-video', {
                     transformOrigin: 'center center',
                     scale: 1,
@@ -102,6 +102,7 @@ const Hero = () => {
                                 src={getVideoSrc(upcomingVideoIndex)}
                                 loop
                                 muted
+                                playsInline
                                 id="current-video"
                                 className="size-64 origin-center scale-150 object-cover object-center"
                                 onLoadedData={handleVideoLoad}
@@ -113,6 +114,7 @@ const Hero = () => {
                         src={getVideoSrc(currentIndex)}
                         loop
                         muted
+                        playsInline
                         id="next-video"
                         className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
                         onLoadedData={handleVideoLoad}
@@ -122,6 +124,7 @@ const Hero = () => {
                         autoPlay
                         loop
                         muted
+                        playsInline
                         className="absolute top-0 left-0 size-full object-cover object-center"
                         onLoadedData={handleVideoLoad}
                     />
