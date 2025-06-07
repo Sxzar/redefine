@@ -6,6 +6,9 @@
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Green Sock](https://img.shields.io/badge/green%20sock-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
 
+## 🔗 Live Preview
+
+> 🚀 [**View Live Site Here**](https://sn-zentry.netlify.app/)
 
 > ⚠️ **Note**: This project is for educational purposes only. All design credits go to **Zentry**. It is not intended for commercial use or public deployment.
 
