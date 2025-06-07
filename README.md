@@ -54,6 +54,7 @@ Make sure you have the following installed on your machine:
 ```bash
 git clone https://github.com/Sxzar/redefine.git
 cd redefine
+```
 
 ### 📦 Installation
 
@@ -61,12 +62,13 @@ Install the project dependencies using npm:
 
 ```bash
 npm install
-
+```
 
 ### 🚀 Run the Project
 
 ```bash
 npm run dev
+```
 
 Open http://localhost:5173 in your browser to view the project.
 
