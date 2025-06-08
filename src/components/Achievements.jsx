@@ -5,7 +5,7 @@ import AnimatedTitle from './AnimatedTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Achivements = () => {
+const Achievements = () => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -150,4 +150,4 @@ const Achivements = () => {
     );
 };
 
-export default Achivements;
+export default Achievements;

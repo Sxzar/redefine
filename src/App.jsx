@@ -7,7 +7,7 @@ import Story from './components/Story';
 import Identity from './components/Identity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Achivements from './components/Achivements';
+import Achievements from './components/Achievements';
 
 const App = () => {
     return (
@@ -18,7 +18,7 @@ const App = () => {
             <Features />
             <Story />
             <Identity />
-            <Achivements />
+            <Achievements />
             <Contact />
             <Footer />
         </main>
