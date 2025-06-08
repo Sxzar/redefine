@@ -39,7 +39,11 @@ const Hero = () => {
             return () => clearTimeout(timeout);
         }
     }, [loadedVideos, isMobile]);
-    const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+
+    const getVideoSrc = (index) => {
+        const base = isMobile ? 'videos/mobile/hero-' : 'videos/hero-';
+        return `${base}${index}.mp4`;
+    };
 
     useGSAP(
         () => {
