@@ -43,14 +43,14 @@ const Achivements = () => {
                 our universe in a nutshell
             </p>
             <AnimatedTitle
-                title="ze<b>n</b>try at a glan<b>c</b>e"
+                title="ze<b>n</b>try at a<br /> glan<b>c</b>e"
                 containerClass="special-font !text-black dark:!text-white"
             />
 
-            <div className="mt-10 grid gap-7 md:grid-cols-2">
+            <div className="mt-10 mb-20 flex flex-col-reverse gap-7 md:mb-0 md:grid md:grid-cols-2">
                 {/* First Col */}
-                <div className="flex flex-col items-end gap-7">
-                    <div className="border-hsla relative w-2/3 rounded-xl md:mt-[200px]">
+                <div className="flex flex-col gap-7 md:items-end">
+                    <div className="border-hsla relative rounded-xl md:mt-[200px] md:w-2/3">
                         <div className="absolute top-10 left-10 z-10">
                             <p class="font-general text-[10px] uppercase">
                                 products
@@ -77,7 +77,7 @@ const Achivements = () => {
                         </p>
                     </div>
 
-                    <div className="relative ml-24 w-2/3 rounded-xl bg-violet-300 p-4">
+                    <div className="relative rounded-xl bg-violet-300 p-4 md:ml-24 md:w-2/3">
                         <p className="font-general text-[10px] text-black uppercase">
                             Treasury
                         </p>
