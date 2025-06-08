@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
     @font-face {
@@ -51,6 +52,7 @@ body {
     width: 100dvw;
     background-color: var(--color-blue-50);
     overflow-x: hidden;
+    @apply bg-blue-50 text-black dark:bg-black dark:text-white;
 }
 
 @utility border-hsla {

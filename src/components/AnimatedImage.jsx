@@ -79,7 +79,7 @@ const AnimatedImage = ({ imgMatch, i }) => {
         >
             {/* Black square trigger */}
             <span
-                className="pulse-scale animated-word block h-8 w-8 cursor-pointer rounded-md bg-black"
+                className="pulse-scale animated-word block h-8 w-8 cursor-pointer rounded-md bg-black dark:bg-white"
                 onMouseEnter={handleEnter}
             />
 
