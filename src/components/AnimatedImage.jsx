@@ -1,16 +1,18 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 
 const AnimatedImage = ({ imgMatch, i }) => {
     const frameRef = useRef(null);
     const [showImage, setShowImage] = useState(false);
+    const [isVisible, setIsVisible] = useState(false); // handles delayed unmount
 
     const handleEnter = () => {
-        setShowImage(true);
+        setIsVisible(true); // mount image
+        setShowImage(true); // trigger animation in
     };
 
     const handleLeaveImage = () => {
-        setShowImage(false);
+        setShowImage(false); // trigger animation out
         gsap.to(frameRef.current, {
             rotateX: 0,
             rotateY: 0,
@@ -43,8 +45,38 @@ const AnimatedImage = ({ imgMatch, i }) => {
         });
     };
 
+    useEffect(() => {
+        const el = frameRef.current;
+
+        if (showImage && el) {
+            gsap.fromTo(
+                el,
+                { scale: 0, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: 'back.out(1.7)'
+                }
+            );
+        }
+
+        if (!showImage && el) {
+            gsap.to(el, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.in',
+                onComplete: () => setIsVisible(false)
+            });
+        }
+    }, [showImage]);
+
     return (
-        <span key={i} className="relative inline-block overflow-visible">
+        <span
+            key={i}
+            className="animated-word relative z-10 inline-block overflow-visible"
+        >
             {/* Black square trigger */}
             <span
                 className="pulse-scale animated-word block h-8 w-8 cursor-pointer rounded-md bg-black"
@@ -52,7 +84,7 @@ const AnimatedImage = ({ imgMatch, i }) => {
             />
 
             {/* Image appears when hovering the square */}
-            {showImage && (
+            {isVisible && (
                 <div
                     className="pointer-events-none absolute top-0 left-0 z-50 flex items-center justify-center"
                     style={{
