@@ -17,6 +17,8 @@ const Hero = () => {
 
     const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
     const handleMiniVideoClick = () => {
         setHasClicked(true);
 
@@ -28,12 +30,15 @@ const Hero = () => {
     };
 
     useEffect(() => {
-        if (loadedVideos >= 3) {
-            setTimeout(() => {
+        if (isMobile) {
+            setIsLoading(false);
+        } else if (loadedVideos >= 3) {
+            const timeout = setTimeout(() => {
                 setIsLoading(false);
-            }, 100);
+            }, 300);
+            return () => clearTimeout(timeout);
         }
-    }, [loadedVideos]);
+    }, [loadedVideos, isMobile]);
     const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
     useGSAP(
@@ -80,12 +85,8 @@ const Hero = () => {
 
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
-            {isLoading && (
-                <div
-                    className={`pointer-events-none absolute z-[100] flex h-dvh w-screen items-center justify-center bg-violet-50 transition-opacity duration-500 ${
-                        isLoading ? 'opacity-100' : 'opacity-0'
-                    }`}
-                >
+            {isLoading && !isMobile && (
+                <div className="pointer-events-none absolute z-[100] flex h-dvh w-screen items-center justify-center bg-violet-50 transition-opacity duration-500">
                     <div className="three-body">
                         <div className="three-body__dot"></div>
                         <div className="three-body__dot"></div>
