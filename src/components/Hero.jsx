@@ -114,6 +114,11 @@ const Hero = () => {
                                 loop
                                 muted
                                 playsInline
+                                poster={
+                                    isMobile
+                                        ? `/videos/mobile/hero-${currentIndex}.jpg`
+                                        : undefined
+                                }
                                 id="current-video"
                                 className="size-64 origin-center scale-150 object-cover object-center"
                                 onLoadedData={handleVideoLoad}
@@ -126,6 +131,11 @@ const Hero = () => {
                         loop
                         muted
                         playsInline
+                        poster={
+                            isMobile
+                                ? `/videos/mobile/hero-${currentIndex}.jpg`
+                                : undefined
+                        }
                         id="next-video"
                         className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
                         onLoadedData={handleVideoLoad}
@@ -136,6 +146,11 @@ const Hero = () => {
                         loop
                         muted
                         playsInline
+                        poster={
+                            isMobile
+                                ? `/videos/mobile/hero-${currentIndex}.jpg`
+                                : undefined
+                        }
                         className="absolute top-0 left-0 size-full object-cover object-center"
                         onLoadedData={handleVideoLoad}
                     />
