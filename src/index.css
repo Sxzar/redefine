@@ -255,6 +255,9 @@ body {
 .float {
     animation: float infinite 6s ease-in-out;
 }
+.pulse-scale {
+    animation: pulseScale 3s ease-in-out infinite;
+}
 
 @keyframes spin78236 {
     0% {
@@ -301,5 +304,15 @@ body {
     }
     100% {
         top: 0;
+    }
+}
+
+@keyframes pulseScale {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import AnimatedImage from './AnimatedImage';
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedTitle = ({ title, containerClass }) => {
@@ -32,6 +33,20 @@ const AnimatedTitle = ({ title, containerClass }) => {
         return () => ctx.revert(); // Clean up on unmount
     }, []);
 
+    const renderWord = (word, i) => {
+        const imgMatch = word.match(/\[img:(.+?)\]/);
+        if (imgMatch) {
+            return <AnimatedImage imgMatch={imgMatch} i={i} />;
+        }
+        return (
+            <span
+                key={i}
+                className="animated-word"
+                dangerouslySetInnerHTML={{ __html: word }}
+            />
+        );
+    };
+
     return (
         <div ref={containerRef} className={`animated-title ${containerClass}`}>
             {title.split('<br />').map((line, index) => (
@@ -39,13 +54,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
                     key={index}
                     className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
                 >
-                    {line.split(' ').map((word, i) => (
-                        <span
-                            key={i}
-                            className="animated-word"
-                            dangerouslySetInnerHTML={{ __html: word }}
-                        />
-                    ))}
+                    {line.split(' ').map((word, i) => renderWord(word, i))}
                 </div>
             ))}
         </div>
