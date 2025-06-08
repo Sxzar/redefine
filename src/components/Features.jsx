@@ -64,6 +64,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
                 loop
                 muted
                 autoPlay
+                playsInline
                 className="absolute top-0 left-0 size-full object-cover object-center"
             />
             <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
@@ -182,6 +183,7 @@ const Features = () => {
                             muted
                             loop
                             autoPlay
+                            playsInline
                             className="size-full object-cover object-center"
                         />
                     </BentoTilt>
