@@ -28,11 +28,10 @@ const Hero = () => {
     };
 
     useEffect(() => {
-        if (loadedVideos >= totalVideos) {
-            const timeout = setTimeout(() => {
+        if (loadedVideos >= 3) {
+            setTimeout(() => {
                 setIsLoading(false);
-            }, 300);
-            return () => clearTimeout(timeout);
+            }, 100);
         }
     }, [loadedVideos]);
     const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
@@ -82,7 +81,11 @@ const Hero = () => {
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
             {isLoading && (
-                <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+                <div
+                    className={`pointer-events-none absolute z-[100] flex h-dvh w-screen items-center justify-center bg-violet-50 transition-opacity duration-500 ${
+                        isLoading ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
                     <div className="three-body">
                         <div className="three-body__dot"></div>
                         <div className="three-body__dot"></div>
