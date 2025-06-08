@@ -110,6 +110,7 @@ const Hero = () => {
                                 loop
                                 muted
                                 playsInline
+                                preload="auto"
                                 id="current-video"
                                 className="size-64 origin-center scale-150 object-cover object-center"
                                 onLoadedData={handleVideoLoad}
@@ -122,6 +123,7 @@ const Hero = () => {
                         loop
                         muted
                         playsInline
+                        preload="auto"
                         id="next-video"
                         className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
                         onLoadedData={handleVideoLoad}
@@ -132,6 +134,7 @@ const Hero = () => {
                         loop
                         muted
                         playsInline
+                        preload="auto"
                         className="absolute top-0 left-0 size-full object-cover object-center"
                         onLoadedData={handleVideoLoad}
                     />
