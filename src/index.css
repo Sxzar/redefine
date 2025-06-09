@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
     @font-face {
@@ -50,7 +51,8 @@ body {
     font-family: 'General Sans', sans-serif;
     width: 100dvw;
     background-color: var(--color-blue-50);
-    overflow-x: hidden;
+    overflow-x: clip;
+    @apply bg-blue-50 text-black dark:bg-black dark:text-white;
 }
 
 @utility border-hsla {
@@ -255,6 +257,9 @@ body {
 .float {
     animation: float infinite 6s ease-in-out;
 }
+.pulse-scale {
+    animation: pulseScale 3s ease-in-out infinite;
+}
 
 @keyframes spin78236 {
     0% {
@@ -301,5 +306,15 @@ body {
     }
     100% {
         top: 0;
+    }
+}
+
+@keyframes pulseScale {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
     }
 }
