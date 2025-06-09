@@ -6,7 +6,7 @@ const Updates = () => {
         <section className="px-10">
             <div className="h-[80vh] min-h-96 rounded-lg bg-[url('/img/parallax.webp')] bg-cover bg-fixed bg-center bg-no-repeat px-10">
                 <div className="pt-10">
-                    <h2 className="font-zentry special-font text-8xl font-black text-white">
+                    <h2 className="font-zentry special-font text-4xl font-black text-white md:text-8xl">
                         Lat<b>e</b>st <br />
                         <b>u</b>pdates
                     </h2>
