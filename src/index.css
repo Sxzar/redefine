@@ -51,7 +51,7 @@ body {
     font-family: 'General Sans', sans-serif;
     width: 100dvw;
     background-color: var(--color-blue-50);
-    overflow-x: hidden;
+    overflow-x: clip;
     @apply bg-blue-50 text-black dark:bg-black dark:text-white;
 }
 

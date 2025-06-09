@@ -8,6 +8,7 @@ import Identity from './components/Identity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Achievements from './components/Achievements';
+import Updates from './components/Updates';
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
             <Story />
             <Identity />
             <Achievements />
+            <Updates />
             <Contact />
             <Footer />
         </main>

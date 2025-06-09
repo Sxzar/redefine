@@ -37,7 +37,7 @@ const Achievements = () => {
     return (
         <section
             ref={sectionRef}
-            className="container mx-auto flex flex-col items-center justify-center px-3 py-16 md:px-10"
+            className="container mx-auto flex flex-col items-center justify-center px-10 md:py-16"
         >
             <p className="font-general mb-10 text-[10px] uppercase">
                 our universe in a nutshell
